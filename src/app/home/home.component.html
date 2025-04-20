@@ -2,7 +2,24 @@
 <!--<app-search-bar></app-search-bar>-->
 
 <div *ngFor="let movie of movies">
-  <h3>{{ movie.title }}</h3>
-  <p>{{ movie.overview }}</p>
+  <mat-card class="example-card" appearance="outlined">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{movie.title}}</mat-card-title>
+    </mat-card-header>
+    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+    <mat-card-content>
+      <p>
+        {{movie.overview}}
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button>Show Detail</button>
+    </mat-card-actions>
+  </mat-card>
+
+
+<!--  <h3>{{ movie.title }}</h3>-->
+<!--  <p>{{ movie.overview }}</p>-->
 </div>
 

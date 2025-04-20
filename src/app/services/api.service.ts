@@ -1,10 +1,9 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 
 
-
-import { HttpClient } from '@angular/common/http';
-import { environment } from '../../environments/environment';
-import { map } from 'rxjs/operators';
+import {HttpClient} from '@angular/common/http';
+import {environment} from '../../environments/environment';
+import {map} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -12,13 +11,13 @@ import { map } from 'rxjs/operators';
 export class ApiService {
   private readonly API_URL = 'https://api.themoviedb.org/3';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
   // Récupère les films populaires
   getPopularMovies() {
     return this.http.get(
-      `${this.API_URL}/movie/popular?api_key=${environment.tmdbApiKey}`
-    ).pipe(
+      `${this.API_URL}/movie/popular`).pipe(
       map((res: any) => res.results)
     );
   }

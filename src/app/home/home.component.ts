@@ -2,6 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ApiService } from '../services/api.service'; // Importe ton service
 import { Movie } from '../models/movie.model'; // Interface pour le typage
+import { SearchBarComponent } from '../search-bar/search-bar.component';
+
+@Component({
+  standalone: true, // Doit être true
+  imports: [SearchBarComponent], // Ajoute cette ligne
+  template: `
+    <p>home works!</p>
+    <app-search-bar></app-search-bar>
+  `
+})
 
 @Component({
   selector: 'app-home',

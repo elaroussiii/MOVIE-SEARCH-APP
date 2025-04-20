@@ -5,18 +5,9 @@ import { Movie } from '../models/movie.model'; // Interface pour le typage
 import { SearchBarComponent } from '../search-bar/search-bar.component';
 
 @Component({
-  standalone: true, // Doit être true
-  imports: [SearchBarComponent], // Ajoute cette ligne
-  template: `
-    <p>home works!</p>
-    <app-search-bar></app-search-bar>
-  `
-})
-
-@Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, SearchBarComponent],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })

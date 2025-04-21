@@ -25,7 +25,7 @@ export class ApiService {
   // Recherche de films
   searchMovies(query: string) {
     return this.http.get(
-      `${this.API_URL}/search/movie?api_key=${environment.tmdbApiKey}&query=${query}`
+      `${this.API_URL}/search/movie`
     ).pipe(
       map((res: any) => res.results)
     );
@@ -34,7 +34,7 @@ export class ApiService {
   // Détails d'un film spécifique
   getMovieDetails(id: number) {
     return this.http.get(
-      `${this.API_URL}/movie/${id}?api_key=${environment.tmdbApiKey}`
+      `${this.API_URL}/movie/${id}`
     );
   }
 }

@@ -1,21 +1,15 @@
 import {Component, OnInit} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {ApiService} from '../services/api.service'; // Importe ton service
-import {Movie} from '../models/movie.model'; // Interface pour le typage
-import {
-  MatCard,
-  MatCardActions,
-  MatCardContent,
-  MatCardHeader,
-  MatCardImage,
-  MatCardTitle
-} from '@angular/material/card';
-import {MatButton} from '@angular/material/button';
+import {Movie} from '../models/movie.model';
+import {MatCardModule} from '@angular/material/card';
+import {RouterModule} from '@angular/router';
+import {MatButton} from '@angular/material/button'; // Interface pour le typage
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, MatCardTitle, MatCard, MatCardHeader, MatCardContent, MatCardActions, MatCardImage, MatButton],
+  imports: [CommonModule, MatCardModule, RouterModule, MatButton],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })

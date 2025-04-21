@@ -1,0 +1,59 @@
+<div class="movie-detail-container">
+  <!-- Movie Poster and Backdrop -->
+  <div class="movie-images">
+    <div class="movie-backdrop" [ngStyle]="{'background-image': 'url(https://image.tmdb.org/t/p/w500' + movie.backdrop_path + ')'}"></div>
+    <img class="movie-poster" [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path" alt="{{ movie.title }}">
+  </div>
+
+  <!-- Movie Information -->
+  <mat-card class="movie-info-card">
+    <mat-card-title>
+      <span class="movie-title">{{ movie.title }}</span>
+    </mat-card-title>
+    <mat-card-subtitle>
+      <span class="movie-tagline">{{ movie.tagline }}</span>
+    </mat-card-subtitle>
+    <mat-card-content>
+      <div class="movie-genres">
+        <strong>Genres:</strong>
+        <span *ngFor="let genre of movie.genres; let i = index">
+          {{ genre.name }}<span *ngIf="i < movie.genres.length - 1">, </span>
+        </span>
+      </div>
+      <div class="movie-overview">
+        <strong>Overview:</strong>
+        <p>{{ movie.overview }}</p>
+      </div>
+      <div class="movie-details">
+        <p><strong>Release Date:</strong> {{ movie.release_date }}</p>
+        <p><strong>Runtime:</strong> {{ movie.runtime }} mins</p>
+        <p><strong>Budget:</strong> ${{ movie.budget | number }}</p>
+        <p><strong>Revenue:</strong> ${{ movie.revenue | number }}</p>
+        <p><strong>Language:</strong> {{ movie.spoken_languages[0]?.english_name }}</p>
+        <p><strong>Status:</strong> {{ movie.status }}</p>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <!-- Collection Info -->
+  <mat-card *ngIf="movie.belongs_to_collection" class="collection-card">
+    <mat-card-header>
+      <img mat-card-avatar [src]="'https://image.tmdb.org/t/p/w500' + movie.belongs_to_collection.poster_path" alt="Collection Poster">
+      <mat-card-title>{{ movie.belongs_to_collection.name }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div [ngStyle]="{'background-image': 'url(https://image.tmdb.org/t/p/w500' + movie.belongs_to_collection.backdrop_path + ')'}" class="collection-backdrop"></div>
+    </mat-card-content>
+  </mat-card>
+
+  <!-- Production Companies -->
+  <mat-card class="production-companies-card">
+    <mat-card-title>Production Companies</mat-card-title>
+    <mat-card-content>
+      <div class="production-company" *ngFor="let company of movie.production_companies">
+        <img *ngIf="company.logo_path" [src]="'https://image.tmdb.org/t/p/w500' + company.logo_path" [alt]="company.name">
+        <span>{{ company.name }} ({{ company.origin_country }})</span>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
